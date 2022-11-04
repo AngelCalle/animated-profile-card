@@ -1,7 +1,7 @@
 :root {
 	--color-gray: #292929;
-	--color-primary: #db1580;
-	--color-secondary: #0040FF;
+	--color-primary: #DF0101;
+	--color-secondary: #FF8000;
 	--card-height: 65vh;
 	--card-width: calc(var(--card-height) / 1.5);
 }
@@ -86,8 +86,9 @@ body {
 	left: 50%;
 	background: linear-gradient(var(--color-primary), var(--color-secondary));
 	animation: animate-reflection 6s linear infinite;
-	filter: blur(80px);
+	filter: blur(33px);
 	border-radius:50%;
+	opacity: 0.32;
 }
 
 .card .reflection::after {
