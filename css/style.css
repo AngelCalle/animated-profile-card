@@ -1,0 +1,103 @@
+:root {
+	--card-height: 65vh;
+	--card-width: calc(var(--card-height) / 1.5);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #333333;
+}
+
+.card {
+	position: relative;
+	width: var(--card-width);
+	height: var(--card-height);
+	background: #333333;
+	transition: 0.5s;
+	border-radius: 8px;
+}
+
+.card .border {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.card .border::before {
+	content: '';
+	position: absolute;
+	width: 360%;
+	height: 360%;
+	transform: translate(-50%, -50%);
+	background: linear-gradient(#db1580, blue);
+	animation: animate-border 4s linear infinite;
+}
+
+.card .border::after {
+	content: '';
+	position: absolute;
+	inset: 3px;
+	background: #292929;
+	border-radius: 5.2px;
+}
+
+@keyframes animate-border {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.card .reflection {
+	position: absolute;
+	inset: 0;
+}
+
+.card .reflection::before {
+	content: '';
+	position: absolute;
+	width: 65%;
+	height: 65%;
+	top: 50%;
+	left: 50%;
+	background: linear-gradient(blue, #db1580);
+	animation: animate-reflection 4s linear infinite;
+	filter: blur(100px);
+}
+
+.card .reflection::after {
+	content: '';
+	position: absolute;
+	inset: 3px;
+	background: #292929;
+}
+
+@keyframes animate-reflection {
+	0% {
+		transform: translate(0%, 0%) rotate(0deg);
+	}
+	25% {
+		transform: translate(-100%, 0%) rotate(90deg);
+	}
+	50% {
+		transform: translate(-100%, -100%) rotate(180deg);
+	}
+	75% {
+		transform: translate(0%, -100%) rotate(270deg);
+	}
+	100% {
+		transform: translate(0%, 0%) rotate(360deg);
+	}
+}
